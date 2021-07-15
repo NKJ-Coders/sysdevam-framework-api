@@ -7,9 +7,18 @@ import { TransactionModule } from './transaction/transaction.module';
 import { TransactionTemplateModule } from './transaction-template/transaction-template.module';
 import { UserModule } from './user/user.module';
 import { UserTransactionModule } from './user-transaction/user-transaction.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [AccessRightModule, TemplateModule, TransactionModule, TransactionTemplateModule, UserModule, UserTransactionModule],
+  imports: [
+    TypeOrmModule.forRoot(),
+    AccessRightModule,
+    TemplateModule,
+    TransactionModule,
+    TransactionTemplateModule,
+    UserModule,
+    UserTransactionModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
